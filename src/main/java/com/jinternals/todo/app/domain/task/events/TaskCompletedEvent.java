@@ -8,7 +8,7 @@ public class TaskCompletedEvent {
 
     private String id;
 
-    public TaskCompletedEvent() {
+    private TaskCompletedEvent() {
     }
 
     public TaskCompletedEvent(String id) {

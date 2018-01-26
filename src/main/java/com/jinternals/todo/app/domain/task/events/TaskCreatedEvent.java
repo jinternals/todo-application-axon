@@ -9,7 +9,7 @@ public class TaskCreatedEvent {
 
     private String title;
 
-    public TaskCreatedEvent() {}
+    private TaskCreatedEvent() {}
 
     public TaskCreatedEvent(String id, String title) {
 

@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class TaskEntry {
+public class TaskView {
 
     @Id
     private String id;
@@ -16,10 +16,10 @@ public class TaskEntry {
 
     private boolean started;
 
-    public TaskEntry() {
+    public TaskView() {
     }
 
-    public TaskEntry(String id, String title) {
+    public TaskView(String id, String title) {
         this.id = id;
         this.title = title;
     }
@@ -59,8 +59,8 @@ public class TaskEntry {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TaskEntry)) return false;
-        TaskEntry taskEntry = (TaskEntry) o;
+        if (!(o instanceof TaskView)) return false;
+        TaskView taskEntry = (TaskView) o;
         return isCompleted() == taskEntry.isCompleted() &&
                 isStarted() == taskEntry.isStarted() &&
                 Objects.equals(getId(), taskEntry.getId()) &&
@@ -75,7 +75,7 @@ public class TaskEntry {
 
     @Override
     public String toString() {
-        return "TaskEntry{" +
+        return "TaskView{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", completed=" + completed +

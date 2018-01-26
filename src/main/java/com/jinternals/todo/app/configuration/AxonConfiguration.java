@@ -1,7 +1,7 @@
 package com.jinternals.todo.app.configuration;
 
-import com.jinternals.todo.app.domain.task.aggreate.Task;
-import com.jinternals.todo.app.query.task.TaskEntry;
+import com.jinternals.todo.app.domain.task.aggreates.Task;
+import com.jinternals.todo.app.query.task.TaskView;
 import org.axonframework.commandhandling.CommandBus;
 import org.axonframework.commandhandling.SimpleCommandBus;
 import org.axonframework.commandhandling.annotation.AggregateAnnotationCommandHandler;
@@ -32,7 +32,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import java.util.Collections;
 
 @Configuration
-@EntityScan(basePackageClasses = {DomainEventEntry.class, SnapshotEventEntry.class, Task.class, TaskEntry.class})
+@EntityScan(basePackageClasses = {DomainEventEntry.class, SnapshotEventEntry.class, Task.class, TaskView.class})
 @EnableJpaRepositories(basePackages = "com.jinternals.todo.app.query")
 public class AxonConfiguration {
 

@@ -1,4 +1,4 @@
-package com.jinternals.todo.app.domain.task.aggreate.exception;
+package com.jinternals.todo.app.domain.task.aggreates.exceptions;
 
 /**
  * @author albert

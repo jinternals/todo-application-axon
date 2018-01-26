@@ -1,8 +1,8 @@
-package com.jinternals.todo.app.domain.task.aggreate;
+package com.jinternals.todo.app.domain.task.aggreates;
 
-import com.jinternals.todo.app.domain.task.aggreate.exception.TaskAlreadyCompletedException;
-import com.jinternals.todo.app.domain.task.aggreate.exception.TaskAlreadyStartedException;
-import com.jinternals.todo.app.domain.task.aggreate.exception.TaskNotStartedException;
+import com.jinternals.todo.app.domain.task.aggreates.exceptions.TaskAlreadyCompletedException;
+import com.jinternals.todo.app.domain.task.aggreates.exceptions.TaskAlreadyStartedException;
+import com.jinternals.todo.app.domain.task.aggreates.exceptions.TaskNotStartedException;
 import com.jinternals.todo.app.domain.task.commands.CreateTaskCommand;
 import com.jinternals.todo.app.domain.task.events.TaskCompletedEvent;
 import com.jinternals.todo.app.domain.task.events.TaskCreatedEvent;
@@ -16,9 +16,6 @@ import javax.persistence.Id;
 
 public class Task extends AbstractAnnotatedAggregateRoot<String> {
 
-    /**
-     * The constant serialVersionUID
-     */
     private static final long serialVersionUID = -5977984483620451665L;
 
     @Id
@@ -37,7 +34,6 @@ public class Task extends AbstractAnnotatedAggregateRoot<String> {
 
     private Task() {
     }
-
 
     @EventSourcingHandler
     void on(TaskCreatedEvent event) {
@@ -58,7 +54,6 @@ public class Task extends AbstractAnnotatedAggregateRoot<String> {
     public void complete(String id) {
         validateTaskAlreadyCompleted(id);
         validateNotStarted(id);
-
         apply(new TaskCompletedEvent(id));
     }
 

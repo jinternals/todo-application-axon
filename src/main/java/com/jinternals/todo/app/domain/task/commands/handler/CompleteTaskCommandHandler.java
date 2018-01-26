@@ -1,6 +1,6 @@
 package com.jinternals.todo.app.domain.task.commands.handler;
 
-import com.jinternals.todo.app.domain.task.aggreate.Task;
+import com.jinternals.todo.app.domain.task.aggreates.Task;
 import com.jinternals.todo.app.domain.task.commands.CompleteTaskCommand;
 import org.axonframework.commandhandling.annotation.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingRepository;
@@ -12,9 +12,12 @@ import static java.util.Optional.ofNullable;
 @Component
 public class CompleteTaskCommandHandler {
 
-    @Autowired
     private EventSourcingRepository<Task> repository;
 
+    @Autowired
+    public CompleteTaskCommandHandler(EventSourcingRepository<Task> repository) {
+        this.repository = repository;
+    }
 
     @CommandHandler
     public void handle(CompleteTaskCommand command) {

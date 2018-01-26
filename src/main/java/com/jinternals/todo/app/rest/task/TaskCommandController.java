@@ -3,7 +3,7 @@ package com.jinternals.todo.app.rest.task;
 import com.jinternals.todo.app.domain.task.commands.CompleteTaskCommand;
 import com.jinternals.todo.app.domain.task.commands.CreateTaskCommand;
 import com.jinternals.todo.app.domain.task.commands.StartTaskCommand;
-import com.jinternals.todo.app.query.task.TaskEntryRepository;
+import com.jinternals.todo.app.query.task.TaskViewRepository;
 import com.jinternals.todo.app.rest.task.requests.CreateTaskRequest;
 import com.jinternals.todo.app.rest.task.response.TaskInfo;
 import org.axonframework.commandhandling.gateway.CommandGateway;
@@ -19,13 +19,13 @@ public class TaskCommandController {
 
     private final IdentifierFactory identifierFactory = IdentifierFactory.getInstance();
 
-    private final TaskEntryRepository taskEntryRepository;
+    private final TaskViewRepository taskEntryRepository;
 
     private final CommandGateway commandGateway;
 
 
     @Autowired
-    public TaskCommandController(TaskEntryRepository taskEntryRepository, CommandGateway commandGateway) {
+    public TaskCommandController(TaskViewRepository taskEntryRepository, CommandGateway commandGateway) {
         this.taskEntryRepository = taskEntryRepository;
         this.commandGateway = commandGateway;
     }

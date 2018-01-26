@@ -7,7 +7,7 @@ public class TaskStartedEvent {
 
     private String id;
 
-    public TaskStartedEvent() {
+    private TaskStartedEvent() {
     }
 
     public TaskStartedEvent(String id) {

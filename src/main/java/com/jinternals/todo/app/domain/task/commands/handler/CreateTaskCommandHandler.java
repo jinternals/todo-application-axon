@@ -1,6 +1,6 @@
 package com.jinternals.todo.app.domain.task.commands.handler;
 
-import com.jinternals.todo.app.domain.task.aggreate.Task;
+import com.jinternals.todo.app.domain.task.aggreates.Task;
 import com.jinternals.todo.app.domain.task.commands.CreateTaskCommand;
 import org.axonframework.commandhandling.annotation.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingRepository;
@@ -10,8 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreateTaskCommandHandler {
 
+    private EventSourcingRepository<Task> repository;
+
     @Autowired
-    EventSourcingRepository<Task> repository;
+    public CreateTaskCommandHandler(EventSourcingRepository<Task> repository) {
+        this.repository = repository;
+    }
 
     @CommandHandler
     public void handle(CreateTaskCommand command) {
