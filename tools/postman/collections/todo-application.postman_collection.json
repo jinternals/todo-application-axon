@@ -1,0 +1,136 @@
+{
+	"info": {
+		"name": "todo-application",
+		"_postman_id": "1c054fea-d278-7bbc-8213-a69f4466f2fc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bce16fc8-a235-412b-8194-087eeb0669f8",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"taskId\", jsonData.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"New Task\"\n}"
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/api/tasks",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "Create New Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Start Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/api/tasks/{{taskId}}/start",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks",
+						"{{taskId}}",
+						"start"
+					]
+				},
+				"description": "Start Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Complete Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/api/tasks/{{taskId}}/complete",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks",
+						"{{taskId}}",
+						"complete"
+					]
+				},
+				"description": "Complete Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ffbb819-f165-48ee-a67b-cdf24efad76b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/api/tasks/{{taskId}}",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks",
+						"{{taskId}}"
+					]
+				},
+				"description": "Get Task"
+			},
+			"response": []
+		}
+	]
+}
