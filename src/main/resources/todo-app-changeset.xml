@@ -80,7 +80,7 @@
     </changeSet>
 
     <changeSet author="mradul" id="7">
-        <createTable tableName="task_entry">
+        <createTable tableName="task_view">
             <column name="id" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
@@ -95,7 +95,7 @@
     </changeSet>
 
     <changeSet author="mradul" id="8">
-        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="task_entry"/>
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="task_view"/>
     </changeSet>
 
 </databaseChangeLog>
