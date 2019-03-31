@@ -23,6 +23,6 @@ Implementation notes:
 
 Documentation
 =============
-* Axon Framework - http://www.axonframework.org/
+* Axon Framework - https://axoniq.io/
 * Spring Boot - http://projects.spring.io/spring-boot/
 * Spring Framework - http://projects.spring.io/spring-framework/

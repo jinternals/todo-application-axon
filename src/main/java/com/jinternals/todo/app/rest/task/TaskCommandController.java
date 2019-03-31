@@ -7,7 +7,7 @@ import com.jinternals.todo.app.query.task.TaskViewRepository;
 import com.jinternals.todo.app.rest.task.requests.CreateTaskRequest;
 import com.jinternals.todo.app.rest.task.response.TaskInfo;
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.axonframework.domain.IdentifierFactory;
+import org.axonframework.common.IdentifierFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

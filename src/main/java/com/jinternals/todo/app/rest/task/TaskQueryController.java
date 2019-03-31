@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 public class TaskQueryController {
 
@@ -20,7 +22,8 @@ public class TaskQueryController {
 
     @RequestMapping(value = "/api/tasks/{id}", method = RequestMethod.GET)
     public TaskView getTask(@PathVariable(value = "id") String id) {
-        return repository.findOne(id);
+        Optional<TaskView> taskView = repository.findById(id);
+        return taskView.get();
     }
 
 }

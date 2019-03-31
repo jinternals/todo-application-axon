@@ -1,6 +1,6 @@
 package com.jinternals.todo.app.domain.task.events;
 
-import org.axonframework.serializer.Revision;
+import org.axonframework.serialization.Revision;
 
 @Revision("1")
 public class TaskStartedEvent {

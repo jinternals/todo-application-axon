@@ -1,6 +1,6 @@
 package com.jinternals.todo.app.domain.task.commands;
 
-import org.axonframework.commandhandling.annotation.TargetAggregateIdentifier;
+import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 public class StartTaskCommand {
 

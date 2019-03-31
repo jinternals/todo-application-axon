@@ -1,8 +1,11 @@
 package com.jinternals.todo.app.domain.task.commands;
 
+import org.axonframework.modelling.command.TargetAggregateIdentifier;
+
 
 public class CreateTaskCommand {
 
+    @TargetAggregateIdentifier
     private String id;
 
     private String title;

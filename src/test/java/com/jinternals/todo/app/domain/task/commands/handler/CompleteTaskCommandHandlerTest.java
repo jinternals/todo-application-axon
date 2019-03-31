@@ -8,25 +8,21 @@ import com.jinternals.todo.app.domain.task.events.TaskCompletedEvent;
 import com.jinternals.todo.app.domain.task.events.TaskCreatedEvent;
 import com.jinternals.todo.app.domain.task.events.TaskStartedEvent;
 import org.axonframework.eventsourcing.EventSourcingRepository;
-import org.axonframework.test.FixtureConfiguration;
+import org.axonframework.modelling.command.Repository;
+import org.axonframework.test.aggregate.AggregateTestFixture;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.axonframework.test.Fixtures.newGivenWhenThenFixture;
 
 public class CompleteTaskCommandHandlerTest {
 
-    private FixtureConfiguration<Task> fixture;
-    private EventSourcingRepository<Task> repository;
+    private AggregateTestFixture<Task> fixture;
 
     @Before
     public void setUp() {
-        fixture = newGivenWhenThenFixture(Task.class);
-        repository = new EventSourcingRepository<Task>(Task.class, fixture.getEventStore());
-        fixture.registerRepository(repository);
-        fixture.registerAnnotatedCommandHandler(new CompleteTaskCommandHandler(repository));
+        fixture = new AggregateTestFixture(Task.class);
+        fixture.registerAnnotatedCommandHandler(new CompleteTaskCommandHandler(fixture.getRepository()));
     }
-
 
     @Test
     public void shouldCompleteTask() {
